@@ -1,4 +1,4 @@
-scrapy_demo
+#Scrapy_demo
 #################
 
 ###
@@ -8,16 +8,16 @@ please give me a start ,thanks :)
 
  
 
-##Spider list 
+#Spider list 
 
-*douban_image
-*googleplay
+* douban_image
+* googleplay
 
 
 
 #How to use 
 for each project will there has a run_spider.py ,just run the script.
 
-'''
+`
 python run_spider.py
-'''
+`
