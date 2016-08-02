@@ -12,12 +12,17 @@ please give me a start ,thanks :)
 
 * douban_image
 * googleplay
+* cnbeta
 
 
+#Project Feature 
+
+* google play use the crawl spider and pymongo 
+* douban image use the imagepiepline to download image 
+* cnbeta use the sqlalchmey th save the item to mysql(or other database if the sqlalchemy can use)
 
 #How to use 
 for each project will there has a run_spider.py ,just run the script.
-
 `
 python run_spider.py
 `
