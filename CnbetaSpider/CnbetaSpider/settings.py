@@ -114,5 +114,5 @@ MYSQL_CONN = {
     'password':'user_pwd',
     'db':'test_db',
     'table':'test_tb',
-    'mysq_uri':'mysql://{user}:{pwd}@{host}:3306/{db}?charset=utf8'
+    'mysql_uri':'mysql://{user}:{pwd}@{host}:3306/{db}?charset=utf8'
 }

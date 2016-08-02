@@ -31,7 +31,7 @@ class cnbeta(Base):
 
 def create_session():
     # declare the connecting to the server
-    engine = create_engine(MYSQL_CONN['mysq_uri']
+    engine = create_engine(MYSQL_CONN['mysql_uri']
                            .format(user=MYSQL_CONN['user'], pwd=MYSQL_CONN['password'], host=MYSQL_CONN['host'],
                                    db=MYSQL_CONN['db'])
                            , echo=False)
