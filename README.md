@@ -2,27 +2,27 @@
 #################
 
 ###
-this project will release the most websites while i crawled , hope this will help you,if this project helps you, 
-please give it a start ,thanks :)
+this project scrapes a list of websites I used to crawl most often
+if this project helped you, please give it a star, thanks :)
 ###
 
- 
 
-#Spider list 
+
+#Spider list
 
 * douban_image
 * googleplay
 * cnbeta
 
 
-#Project Feature 
+#Project Feature
 
-* google play use the crawl spider and pymongo 
-* douban image use the imagepiepline to download image (use the headers in case of being baned)
-* cnbeta use the sqlalchmey th save the item to mysql(or other database if the sqlalchemy can support)
+* google play uses the crawl spider and pymongo
+* douban image use the imagepiepline to download image (use the headers in case of being banned)
+* cnbeta uses sqlalchmey to save items to mysql database (or other database if sqlalchemy supports)
 
-#How to use 
-for each project will there will a run_spider.py script,just run the it and enjoy :)
+#How to use
+for each project there is a run_spider.py script, just run it and enjoy :)
 
 `
 python run_spider.py
