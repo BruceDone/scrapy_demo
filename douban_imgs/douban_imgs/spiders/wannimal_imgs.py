@@ -8,6 +8,10 @@ from scrapy.http.request import Request
 class Wannimal_Imgs(Spider):
     name = 'wannimal_imgs'
 
+    #
+    # WTF! Bonus here! Definitely a suprise! :)
+    #
+
     def __init__(self, tag='wanimal1983', *args, **kwargs):
         self.allowed_domains = ['tumblr.com']
         self.start_urls = [
