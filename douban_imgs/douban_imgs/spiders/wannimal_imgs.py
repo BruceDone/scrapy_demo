@@ -4,13 +4,6 @@ import re
 from douban_imgs.items import DoubanImgsItem
 from scrapy.http.request import Request
 
-# please pay attention to the encoding of info,otherwise raise error
-import sys
-
-reload(sys)
-
-sys.setdefaultencoding('utf8')
-
 
 class Wannimal_Imgs(Spider):
     name = 'wannimal_imgs'
