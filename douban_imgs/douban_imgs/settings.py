@@ -61,7 +61,7 @@ NEWSPIDER_MODULE = 'douban_imgs.spiders'
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'douban_imgs.pipelines.DoubanImgDownloadPieline': 300,
+    'douban_imgs.pipelines.DoubanImgDownloadPipeline': 300,
 }
 
 IMAGES_STORE = 'C:\\doubanimgs'
