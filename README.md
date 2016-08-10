@@ -2,8 +2,8 @@
 #################
 
 ###
-this project will release the most website while i crawled , hope this will you ,if this project helps you 
-please give me a start ,thanks :)
+this project will release the most websites while i crawled , hope this will help you,if this project helps you, 
+please give it a start ,thanks :)
 ###
 
  
@@ -18,11 +18,11 @@ please give me a start ,thanks :)
 #Project Feature 
 
 * google play use the crawl spider and pymongo 
-* douban image use the imagepiepline to download image 
-* cnbeta use the sqlalchmey th save the item to mysql(or other database if the sqlalchemy can use)
+* douban image use the imagepiepline to download image (use the headers in case of being baned)
+* cnbeta use the sqlalchmey th save the item to mysql(or other database if the sqlalchemy can support)
 
 #How to use 
-for each project will there has a run_spider.py ,just run the script.
+for each project will there will a run_spider.py script,just run the it and enjoy :)
 
 `
 python run_spider.py
