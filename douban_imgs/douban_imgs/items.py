@@ -6,8 +6,7 @@
 # http://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-from scrapy import Item,Field
-
+from scrapy import Item, Field
 
 
 class DoubanImgsItem(scrapy.Item):
@@ -16,9 +15,3 @@ class DoubanImgsItem(scrapy.Item):
     image_urls = Field()
     images = Field()
     image_paths = Field()
-    pass
-
-
-
-
-

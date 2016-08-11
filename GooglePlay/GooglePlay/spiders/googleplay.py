@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from scrapy.spider import CrawlSpider,Rule
+from scrapy.spider import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
 from GooglePlay.items import GoogleplayItem
 import logging
+
 
 class GoogleSpider(CrawlSpider):
     name = "google"
@@ -15,9 +16,9 @@ class GoogleSpider(CrawlSpider):
     ]
 
     rules = [
-        Rule(LinkExtractor(allow=("https://play\.google\.com/store/apps/details", )), callback='parse_app',follow=True),
-    ] #  CrawlSpider 会根据 rules 规则爬取页面并调用函数进行处理
-
+        Rule(LinkExtractor(allow=("https://play\.google\.com/store/apps/details", )),
+             callback='parse_app', follow=True),
+    ]  # CrawlSpider 会根据 rules 规则爬取页面并调用函数进行处理
 
     def parse_app(self, response):
         # 在这里只获取页面的 URL 以及下载数量
@@ -32,7 +33,7 @@ class GoogleSpider(CrawlSpider):
 
         rate_count = response.xpath('//span[@class="rating-count"]/text()')
         if rate_count:
-            rate_count = rate_count.extract()[0].replace(',')
+            rate_count = rate_count.extract()[0].strip().replace(',', '')
             item['rating_count'] = rate_count
 
         app_name_div = response.xpath('//div[@class="id-app-title"]/text()')
@@ -41,22 +42,27 @@ class GoogleSpider(CrawlSpider):
             return
         item['app_name'] = app_name_div.extract()[0].strip()
 
-        mail_a = response.xpath('//div[@class="content contains-text-link"]/a[2]/@href')
+        mail_a = response.xpath(
+            '//div[@class="content contains-text-link"]/a[2]/@href')
         if not mail_a:
             return
 
         mail_text = mail_a.extract()[0]
         if 'mailto:' in mail_text:
-            mail_text = mail_text.replace('mailto:','')
-        item['mail'] = mail_text
+            mail_text = mail_text.replace('mailto:', '')
+        item['mail'] = mail_text.strip()
 
         company_name_span = response.xpath('//span[@itemprop="name"]/text()')
-        if company_name_span:
-           item['company_name'] = company_name_span.extract()[0]
+        if not company_name_span:
+            return
 
-        download_count = response.xpath('//div[@itemprop="numDownloads"]/text()')
+        company_name = company_name_span.extract()[0].strip()
+        item['company_name'] = company_name
+
+        download_count = response.xpath(
+            '//div[@itemprop="numDownloads"]/text()')
         if download_count:
-            item['download_count'] = download_count.extract()[0]
+            item['download_count'] = download_count.extract()[0].strip()
         else:
             item['download_count'] = '0'
 
