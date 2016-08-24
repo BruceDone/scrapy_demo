@@ -66,6 +66,6 @@ class CrawlcnbetaSpider(scrapy.Spider):
             item['inputtime'] = tmp_item.get('inputtime', None)
             item['hometext'] = tmp_item.get('hometext', None)
             item['title'] = tmp_item.get('title', None)
-            item['url_show'] = 'http://http://www.cnbeta.com' + tmp_item.get('url_show', '')
+            item['url_show'] = 'http://www.cnbeta.com' + tmp_item.get('url_show', '')
             item['crawled_datetime'] = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
             yield item
