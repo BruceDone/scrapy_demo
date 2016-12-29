@@ -15,7 +15,7 @@ class DoubanImgsPipeline(object):
         return item
 
 
-class DoubanImgDownloadPieline(ImagesPipeline):
+class DoubanImgDownloadPipeline(ImagesPipeline):
     default_headers = {
         'accept': 'image/webp,image/*,*/*;q=0.8',
         'accept-encoding': 'gzip, deflate, sdch, br',
