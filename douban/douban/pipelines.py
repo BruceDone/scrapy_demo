@@ -9,7 +9,7 @@ from scrapy.exceptions import DropItem
 from scrapy import Request
 
 
-class DoubanImgDownloadPieline(ImagesPipeline):
+class DoubanImgDownloadPipeline(ImagesPipeline):
     default_headers = {
         'accept': 'image/webp,image/*,*/*;q=0.8',
         'accept-encoding': 'gzip, deflate, sdch, br',
