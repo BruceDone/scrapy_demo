@@ -10,7 +10,7 @@ import pymongo
 import models
 
 
-class CnbetaspiderPipeline(object):
+class CnbetaMongoPipeline(object):
     def __init__(self):
         self._db = MONGODB.get('db')
         self._collection = MONGODB.get('collection')

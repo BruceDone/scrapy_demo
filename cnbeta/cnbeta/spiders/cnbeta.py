@@ -8,12 +8,12 @@ from .. import items
 from datetime import datetime
 
 
-class CrawlcnbetaSpider(scrapy.Spider):
-    name = "crawl_cnbeta"
+class Cnbeta(scrapy.Spider):
+    name = "cnbeta"
 
     allowed_domains = ["cnbeta.com"]
 
-    url_template = 'http://www.cnbeta.com/more?jsoncallback=&type=all&page={page}&csrf_token=f9f02991114974d1efe7f5fda36eac5aec3d0e2b&_=1458017320052'
+    url_template = 'http://www.cnbeta.com/home/more?&type=all&page={page}&_csrf=TXBQSUNmV24rPz0PCgMNQ3Q4BC0tMGckeyc8ACRLBBl8N30fGyIHBA%3D%3D&_=1488269056276'
 
     default_headers = {
         'Accept': 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01',
@@ -38,22 +38,26 @@ class CrawlcnbetaSpider(scrapy.Spider):
             yield Request(url=p, headers=self.default_headers, callback=self.parse)
 
     def parse(self, response):
+
         if not response.body:
             logger.error(msg='there is no response body ,please go and check it ')
             return
+
         json_object = json.loads(response.body_as_unicode())
         if not json_object:
             logger.error(msg='there is no json object')
             return
+
         result = json_object.get('result', None)
         if not result:
             return
+
         item_list = result.get('list')
         if not items:
             return
 
         for tmp_item in item_list:
-            item = items.CnbetaspiderItem()
+            item = items.CnbetaItem()
             item['catid'] = tmp_item.get('catid', None)
             item['comments'] = tmp_item.get('comments', None)
             item['counter'] = tmp_item.get('counter', None)

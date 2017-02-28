@@ -9,7 +9,7 @@ from datetime import datetime
 Base = declarative_base()
 
 
-class cnbeta(Base):
+class Cnbeta(Base):
     __tablename__ = 'cnbeta'
     id = Column(Integer, primary_key=True, autoincrement=True)
     score = Column(Integer, nullable=False, default=0)

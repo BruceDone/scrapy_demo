@@ -9,7 +9,7 @@ import scrapy
 from scrapy import Field
 
 
-class CnbetaspiderItem(scrapy.Item):
+class CnbetaItem(scrapy.Item):
     # define the fields for your item here like:
     catid = Field()
     comments = Field()
