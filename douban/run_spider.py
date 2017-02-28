@@ -1,3 +1,3 @@
 from scrapy import cmdline
-cmd_str = 'scrapy crawl download_douban'
+cmd_str = 'scrapy crawl douban'
 cmdline.execute(cmd_str.split(' '))

@@ -7,12 +7,6 @@
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exceptions import DropItem
 from scrapy import Request
-from scrapy import log
-
-
-class DoubanImgsPipeline(object):
-    def process_item(self, item, spider):
-        return item
 
 
 class DoubanImgDownloadPieline(ImagesPipeline):

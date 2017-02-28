@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for douban_imgs project
+# Scrapy settings for douban project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,13 +9,13 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'douban_imgs'
+BOT_NAME = 'douban'
 
-SPIDER_MODULES = ['douban_imgs.spiders']
-NEWSPIDER_MODULE = 'douban_imgs.spiders'
+SPIDER_MODULES = ['douban.spiders']
+NEWSPIDER_MODULE = 'douban.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = 'douban_imgs (+http://www.yourdomain.com)'
+# USER_AGENT = 'douban (+http://www.yourdomain.com)'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS=32
@@ -43,28 +43,28 @@ NEWSPIDER_MODULE = 'douban_imgs.spiders'
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    'douban_imgs.middlewares.MyCustomSpiderMiddleware': 543,
+#    'douban.middlewares.MyCustomSpiderMiddleware': 543,
 # }
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    'douban_imgs.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'douban.middlewares.MyCustomDownloaderMiddleware': 543,
 # }
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
-# EXTENSIONS = {
-#    'scrapy.telnet.TelnetConsole': None,
-# }
+EXTENSIONS = {
+    'scrapy.telnet.TelnetConsole': None,
+}
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'douban_imgs.pipelines.DoubanImgDownloadPipeline': 300,
+    'douban.pipelines.DoubanImgDownloadPieline': 300,
 }
 
-IMAGES_STORE = 'C:\\doubanimgs'
+IMAGES_STORE = '/Users/bruce/Data/images'
 
 IMAGES_EXPIRES = 90
 
