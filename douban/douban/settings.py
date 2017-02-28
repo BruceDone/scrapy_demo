@@ -55,13 +55,13 @@ NEWSPIDER_MODULE = 'douban.spiders'
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
 EXTENSIONS = {
-    'scrapy.telnet.TelnetConsole': None,
+    'scrapy.extensions.telnet.TelnetConsole': None,
 }
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'douban.pipelines.DoubanImgDownloadPieline': 300,
+    'douban.pipelines.DoubanImgDownloadPipeline': 300,
 }
 
 IMAGES_STORE = '/Users/bruce/Data/images'
