@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for GooglePlay project
+# Scrapy settings for googleplay project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,13 +9,13 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'GooglePlay'
+BOT_NAME = 'googleplay'
 
-SPIDER_MODULES = ['GooglePlay.spiders']
-NEWSPIDER_MODULE = 'GooglePlay.spiders'
+SPIDER_MODULES = ['googleplay.spiders']
+NEWSPIDER_MODULE = 'googleplay.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = 'GooglePlay (+http://www.yourdomain.com)'
+# USER_AGENT = 'googleplay (+http://www.yourdomain.com)'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS=32
@@ -43,13 +43,13 @@ CONCURRENT_REQUESTS_PER_IP = 3
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    'GooglePlay.middlewares.MyCustomSpiderMiddleware': 543,
+#    'googleplay.middlewares.MyCustomSpiderMiddleware': 543,
 # }
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    'GooglePlay.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'googleplay.middlewares.MyCustomDownloaderMiddleware': 543,
 # }
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ DOWNLOAD_HANDLERS = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    #'GooglePlay.pipelines.GoogleplayPipeline': 300,
+    'googleplay.pipelines.GoogleplayPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

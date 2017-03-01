@@ -2,7 +2,7 @@
 
 from scrapy.spider import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
-from GooglePlay.items import GoogleplayItem
+from ..items import GoogleplayItem
 import logging
 
 
