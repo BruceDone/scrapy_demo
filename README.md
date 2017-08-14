@@ -9,6 +9,7 @@ if this project helped you, please give it a star, thanks :)
 * googleplay
 * cnbeta
 * ka
+* cnblogs
 
 # Project Feature
 
