@@ -9,4 +9,5 @@ class BlogsSpider(scrapy.Spider):
 
     def parse(self, response):
         print 'get response'
-        pass
+
+        yield {"result": "error"}
