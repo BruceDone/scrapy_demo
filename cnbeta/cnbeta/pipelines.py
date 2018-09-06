@@ -4,10 +4,11 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
+import pymongo
 
 from settings import MONGODB
-import pymongo
 import models
+from models import scoped_session
 
 
 class CnbetaMongoPipeline(object):
@@ -28,13 +29,11 @@ class CnbetaMongoPipeline(object):
 
 
 class CnbetaMysqlPipeline(object):
-    def __init__(self):
-        self.session = models.create_session()
 
     def process_item(self, item, spider):
         sql_cnbeta = models.cnbeta()
         sql_cnbeta = models.map_orm_item(scrapy_item=item, sql_item=sql_cnbeta)
-        self.session.add(sql_cnbeta)
-        self.session.commit()
-        self.session.close()
+        with scoped_session() as session:
+            session.add(sql_cnbeta)
+
         return item

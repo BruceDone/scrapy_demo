@@ -1,12 +1,30 @@
+from contextlib import contextmanager
+from datetime import datetime
+
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, Date, DateTime, Text
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
+
 from settings import MYSQL_CONN
-from datetime import datetime
 
 # declare a Mapping,this is the class describe map to table column
 Base = declarative_base()
+session_factory = sessionmaker(bind=some_engine)
+Session = scoped_session(session_factory)
+
+
+@contextmanager
+def scoped_session():
+    session = Session()
+    try:
+        yield session
+        session.commit()
+    except:
+        session.rollback()
+        raise
+    finally:
+        session.remove()
 
 
 class Cnbeta(Base):
@@ -29,24 +47,9 @@ class Cnbeta(Base):
     thumb = Column(String(256), nullable=False, default='')
 
 
-def create_session():
-    # declare the connecting to the server
-    engine = create_engine(MYSQL_CONN['mysql_uri']
-                           .format(user=MYSQL_CONN['user'], pwd=MYSQL_CONN['password'], host=MYSQL_CONN['host'],
-                                   db=MYSQL_CONN['db'])
-                           , echo=False)
-    # connect session to active the action
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    return session
-
-
-def map_orm_item(scrapy_item,sql_item):
+def map_orm_item(scrapy_item, sql_item):
     for k, v in scrapy_item.iteritems():
         sql_item.__setattr__(k, v)
     return sql_item
 
-
-def convert_date(date_str):
-    pass
 

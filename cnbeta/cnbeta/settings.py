@@ -107,6 +107,7 @@ MONGODB = {
     'port': 27017,
 }
 
+MYSQL_DB_URI = ''
 
 MYSQL_CONN = {
     'host':'127.0.0.1',
