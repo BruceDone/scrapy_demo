@@ -107,13 +107,4 @@ MONGODB = {
     'port': 27017,
 }
 
-MYSQL_DB_URI = ''
-
-MYSQL_CONN = {
-    'host':'127.0.0.1',
-    'user':'user_name',
-    'password':'user_pwd',
-    'db':'test_db',
-    'table':'test_tb',
-    'mysql_uri':'mysql://{user}:{pwd}@{host}:3306/{db}?charset=utf8'
-}
+MYSQL_DB_URI = 'mysql+pymysql://user_name:user_pwd@127.0.0.1:3306/test_db?charset=utf8'

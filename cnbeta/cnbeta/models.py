@@ -6,11 +6,13 @@ from sqlalchemy import Column, Integer, String, Date, DateTime, Text
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
 
-from settings import MYSQL_CONN
+from settings import MYSQL_DB_URI
 
 # declare a Mapping,this is the class describe map to table column
 Base = declarative_base()
-session_factory = sessionmaker(bind=some_engine)
+
+engine = create_engine(MYSQL_DB_URI)
+session_factory = sessionmaker(bind=engine)
 Session = scoped_session(session_factory)
 
 
