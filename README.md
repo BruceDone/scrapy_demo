@@ -12,7 +12,7 @@ if this project helped you, please give it a star, thanks :)
 
 # Project Feature
 * `google play` uses the crawl spider and pymongo
-* `douban image` use the images pipeline to download image (use the headers in case of being banned)
+* `douban` use the images pipeline to download image (use the headers in case of being banned), after finish it will output the txt file of item information
 * `cnbeta` uses sqlalchmey to save items to mysql database (or other database if sqlalchemy supports)
 * `ka` uses the kafka , this is a demo spider how to use the scrapy and kafka together , this spider will not close , if you push a message to the kafka ,the spider will start to crawl the url you just give
 * `cnblogs` use the signal handler.

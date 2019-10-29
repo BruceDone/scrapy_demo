@@ -62,12 +62,12 @@ EXTENSIONS = {
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'douban.pipelines.DoubanImgDownloadPipeline': 300,
+    'douban.pipelines.DoubanItemPipeline': 301,
 }
 
 IMAGES_STORE = '/Users/brucedone/imgs'
 
 IMAGES_EXPIRES = 90
-
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

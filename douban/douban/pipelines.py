@@ -5,6 +5,8 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import time
+import json
+import os
 
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exceptions import DropItem
@@ -33,6 +35,32 @@ class DoubanImgDownloadPipeline(ImagesPipeline):
             raise DropItem("Item contains no images")
 
         item['image_paths'] = image_paths
-        item['download_time'] =time.time()
+        item['download_time'] = time.time()
 
         return item
+
+
+class DoubanItemPipeline():
+
+    def __init__(self, images_store):
+        self.images_store = images_store
+        self.file_name = os.path.join(images_store, str(int(time.time())) + '.txt')
+        self.handler = open(self.file_name, 'w')
+
+    def process_item(self, item, spider):
+        self.handler.write(json.dumps(dict(item)) + '\n')
+
+        return item
+
+    def close_spider(self, spider):
+        self.handler.close()
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        images_store = crawler.settings.get('IMAGES_STORE')
+        if not images_store:
+            raise ValueError("not find the images_store, please check")
+
+        return cls(
+            images_store=images_store
+        )
