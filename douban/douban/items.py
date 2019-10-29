@@ -15,3 +15,4 @@ class DoubanImgsItem(scrapy.Item):
     image_urls = Field()
     images = Field()
     image_paths = Field()
+    download_time = Field()

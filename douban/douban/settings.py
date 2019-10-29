@@ -64,7 +64,7 @@ ITEM_PIPELINES = {
     'douban.pipelines.DoubanImgDownloadPipeline': 300,
 }
 
-IMAGES_STORE = '/Users/bruce/Data/images'
+IMAGES_STORE = '/Users/brucedone/imgs'
 
 IMAGES_EXPIRES = 90
 
